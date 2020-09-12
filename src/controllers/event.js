@@ -1,6 +1,7 @@
 event_db = require('../db/db');
 
 const create = async (req, res) => {
+    
     const { event_name, event_description, date, time, address, city, zip_code } = req.body;
 
     const event = {
@@ -13,7 +14,8 @@ const create = async (req, res) => {
         zip_code
     }
     
-    event_db.doc(event_name).set(event)
+    event_db.doc(event_name).set(event);
+
     res.send('success');
 }
 
