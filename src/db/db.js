@@ -6,8 +6,9 @@ admin.initializeApp({
   databaseURL: process.env.DB_URL
 });
 
-var events = admin.database().ref('Events');
+var firestore = admin.firestore();
 
+var events = firestore.collection('Events')
 //events.child('Sample Event').set({'Event Title': 'Sample Event', 'Event Sample Entry': 'Test Event'})
 
 module.exports = events;
