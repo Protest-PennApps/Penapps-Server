@@ -13,7 +13,7 @@ const create = async (req, res) => {
         zip_code
     }
     
-    event_db.child(event_name).set(event)
+    event_db.doc(event_name).set(event)
     res.send('success');
 }
 
