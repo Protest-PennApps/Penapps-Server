@@ -12,17 +12,11 @@ const upload = async (req, res) => {
         is_valid : true
     }
     try {
-
         await image_db.doc(name).set(image);
         res.status(200).send('ok');
-        return statuscodes[200];
-
     } catch (e) {
-
         console.log(e)
         res.status(404).send(e);
-        return statuscodes[404];
-
     }
 
     

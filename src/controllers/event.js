@@ -1,7 +1,3 @@
-const { error } = require('console');
-const { type } = require('os');
-
-const statuscodes = require('http').STATUS_CODES;
 event_db = require('../db/db').events;
 
 const create_event = async (req, res) => {
@@ -27,11 +23,9 @@ const create_event = async (req, res) => {
         await event_db.doc(event_name).set(event);
 
         res.status(200).send('ok');
-        return statuscodes[200]
     } catch (e) {
         console.log(e)
         res.status(404).send(e);
-        return statuscodes[404]
     }
     
 }
