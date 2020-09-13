@@ -26,7 +26,7 @@ const create_event = async (req, res) => {
         
         await event_db.doc(event_name).set(event);
 
-        res.status(200).send(event);
+        res.status(200).send('ok');
         return statuscodes[200]
     } catch (e) {
         console.log(e)
@@ -48,7 +48,7 @@ const add_comment = async (req, res) => {
         updated_comments.push(comment)
         updated_event = await event_db.doc(event_name).update({'comments': updated_comments})
 
-        res.status(200).send(event.data())
+        res.status(200).send('ok')
     } catch (e) {
         console.log(e)
         res.status(404).send(e);
@@ -62,7 +62,7 @@ const get_event = async ( req, res ) => {
     try {
         const event = await event_db.doc(event_name).get()
 
-        res.status(200).send(event.data())
+        res.status(200).send('ok')
     } catch (e) {
         console.log(e)
         res.status(404).send(e);

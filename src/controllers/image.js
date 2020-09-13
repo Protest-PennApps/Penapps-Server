@@ -1,11 +1,11 @@
 image_db = require('../db/db').images;
 
 const upload = async (req, res) => {
-    const { name, image_url, description, geojson_url, event_name, is_valid} = req.body
+    const { name, image_url, description, geojson_url, event_name} = req.body
     
     const image = {
         name,
-        url,
+        image_url,
         description,
         event_name,
         geojson_url,
@@ -14,7 +14,7 @@ const upload = async (req, res) => {
     try {
 
         await image_db.doc(name).set(image);
-        res.status(200).send(image);
+        res.status(200).send('ok');
         return statuscodes[200];
 
     } catch (e) {
