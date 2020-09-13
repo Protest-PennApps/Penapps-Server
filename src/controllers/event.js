@@ -8,7 +8,7 @@ const create_event = async (req, res) => {
     console.log('events')
 
     try {
-        const { event_name, event_description, date, time, address, city, zip_code } = req.body;
+        const { event_name, event_description, date, time, address, city, zip_code, organizer} = req.body;
         console.log(event_name)
 
         const event = {
@@ -19,7 +19,9 @@ const create_event = async (req, res) => {
             address,
             city,
             zip_code,
-            comments : Array()
+            comments : Array(),
+            event_active: true,
+            organizer
         }
         
         await event_db.doc(event_name).set(event);
